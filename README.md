@@ -20,7 +20,7 @@ use the system effectively.
   - Capture Your Face:
     - Follow the on-screen instructions to capture your face. Ensure your face is well-lit, and keep your head within the frame. 
   - Authentication:
-    - Once your face is captured, the system will verify your identity. If successful, you will be granted access to the voting process. If not, please follow the on-screen instructions and try again.
+    - Once your face is captured, the system will verify your identity. If successful, you will be granted access to the voting process. If not, please login and try again.
       
 **3. Voting Process:**
   - Select Your Choices:
