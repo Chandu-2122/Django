@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capture Live Image</title>
+</head>
+<body>
+    <button id="capture-button">Take and Upload Pictures</button>
+
+    <script>
+        const captureButton = document.getElementById('capture-button');
+
+        captureButton.addEventListener('click', async () => {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                const video = document.createElement('video');
+                document.body.appendChild(video);
+                video.srcObject = stream;
+                await video.play();
+
+                const canvas = document.createElement('canvas');
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                const context = canvas.getContext('2d');
+
+                setTimeout(async () => {
+                    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                    const image_data = canvas.toDataURL('image/jpeg');
+                    const response = await fetch('/capture_live_image/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            'X-CSRFToken': csrf_token  // You need to pass the CSRF token
+                        },
+                        body: `image_data=${encodeURIComponent(image_data)}`
+                    });
+
+                    if (response.ok) {
+                        alert('Image captured and uploaded successfully.');
+                    } else {
+                        alert('Failed to capture and upload image.');
+                    }
+
+                    video.pause();
+                    stream.getTracks().forEach(track => track.stop());
+                    document.body.removeChild(video);
+                }, 3000);  // Capture an image after 3 seconds (adjust as needed)
+            } catch (error) {
+                console.error('Error accessing the camera:', error);
+            }
+        });
+    </script>
+</body>
+</html>

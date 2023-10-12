@@ -1,0 +1,31 @@
+ .u-section-1 {
+  background-image: url("images/Desktop-5.jpg");
+}
+
+.u-section-1 .u-sheet-1 {
+  min-height: 710px;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 585px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 448px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 336px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 212px;
+  }
+}
