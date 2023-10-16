@@ -1,13 +1,16 @@
  .u-section-1 {
-  min-height: 1586px;
+  background: url('/static/images/results.jpg');
+  background-position: 50% 50%;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
 }
 
-.u-section-1 .u-image-1 {
-  width: 1242px;
-  height: 699px;
-  margin: 0 calc(((100% - 1140px) / 2) + -52px) 0 auto;
+.u-section-1 .u-sheet-1 {
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-
 .u-section-1 .u-text-1 {
   font-size: 0.8125rem;
   margin: -582px auto 60px calc(((100% - 1140px) / 2) + 129px);

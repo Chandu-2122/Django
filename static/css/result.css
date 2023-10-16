@@ -1,13 +1,14 @@
- .u-section-1 {
-  min-height: 698px;
-  background-image: url("images/7.jpg");
-  background-position: 50% 50%;
+.u-section-1 {
+  background: url('/static/images/sd.jpg');
+  margin: 0;
+  padding: 0;
+  background-size: cover;
 }
 
-@media (max-width: 1199px) {
-   .u-section-1 {
-    min-height: 641px;
-  }
+.u-section-1 .u-sheet-1 {
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 @media (max-width: 991px) {
