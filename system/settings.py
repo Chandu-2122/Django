@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path, os
+from django.contrib.messages import constants as messages
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +28,7 @@ SECRET_KEY = "django-insecure-i7&@!(1zx9u5%vjb6896c56%_*wl1((4n$ep2o=c40_#yzxpq7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -47,8 +50,16 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
+    
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
+MESSAGE_TAGS = {
+    messages.ERROR:'danger'
+}
+
+
 
 ROOT_URLCONF = "system.urls"
 
@@ -63,6 +74,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                
             ],
         },
     },

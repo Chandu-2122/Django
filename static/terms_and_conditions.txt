@@ -1,0 +1,12 @@
+Terms and Conditions for Live Image Capture
+
+By clicking "I Accept," you agree to the following terms:
+
+1. You authorize the use of your device's camera to capture live images for facial authentication during registration.
+2. The captured images will be used solely for the purpose of user verification.
+3. We do not store or share your images with third parties.
+4. You have the option to revoke camera access at any time.
+
+Please read and understand these terms before proceeding.
+
+[I Accept]    [Cancel]

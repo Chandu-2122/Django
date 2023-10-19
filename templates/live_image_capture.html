@@ -1,55 +1,98 @@
+{%load static%}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capture Live Image</title>
-</head>
-<body>
-    <button id="capture-button">Take and Upload Pictures</button>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="{%static '/css/global.css'%}" />
+    <link rel="stylesheet" href="{%static '/css/live_image_capture.css'%}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins ExtraBold:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="desktop-4">
+      <img class="bg-round-icon5" alt="" src="{%static '/images/bground@2x.png' %}" />
+
+      <img class="bg-round-icon6" alt="" src="{%static '/images/bground2@2x.png'%}" />
+
+      <img class="bg-tree-icon3" alt="" src="{%static '/images/bgtree@2x.png'%}" />
+
+      <img class="bg-dot-icon3" alt="" src="{%static '/images/bgdot@2x.png'%}" />
+
+      <div class="online-voting-systems4">Online Voting System</div>
+      <div class="home3">HOME</div>
+      <div class="about3">ABOUT</div>
+      <div class="contact3">CONTACT</div>
+      <div class="desktop-4-child" id="rectangle"></div>
+      <div class="login4">LOGIN</div>
+      <div class="face">
+        <div class="right-side4">
+          <div class="right-side5">
+            <div class="right-side-child2"></div>
+            <div class="right-side-child3"></div>
+            <div class="right-side-child4"></div>
+            <div class="right-side-inner2">
+              <div class="group-parent1">
+                <div class="join-us-group">
+                  <b class="join-us1">Join us!</b>
+                  <div class="just-go-through1">
+                    Just go through the boring process of creating an account.
+                  </div>
+                </div>
+                <div class="carouseldesktoplarge2">
+                  <div class="carouseldesktoplarge-child4"></div>
+                  <div class="carouseldesktoplarge-child5"></div>
+                  <div class="carouseldesktoplarge-child6"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="left-side4">
+          <div class="right-side5">
+            <div class="left-side-child1"></div>
+          </div>
+          <b class="capture-your-face">Capture Your Face</b>
+          <div class="person-wrapper">
+            <img class="person-icon3" alt="" src="{%static '/images/person3.svg'%}" />
+          </div>
+          <div class="capture-wrapper" id="frameContainer3">
+            <b class="capture">CAPTURE</b>
+          </div>
+        </div>
+        <img class="icon" alt="" src="{%static '/images/11@2x.png'%}" />
+      </div>
+    </div>
 
     <script>
-        const captureButton = document.getElementById('capture-button');
-
-        captureButton.addEventListener('click', async () => {
-            try {
-                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-                const video = document.createElement('video');
-                document.body.appendChild(video);
-                video.srcObject = stream;
-                await video.play();
-
-                const canvas = document.createElement('canvas');
-                canvas.width = video.videoWidth;
-                canvas.height = video.videoHeight;
-                const context = canvas.getContext('2d');
-
-                setTimeout(async () => {
-                    context.drawImage(video, 0, 0, canvas.width, canvas.height);
-                    const image_data = canvas.toDataURL('image/jpeg');
-                    const response = await fetch('/capture_live_image/', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                            'X-CSRFToken': csrf_token  // You need to pass the CSRF token
-                        },
-                        body: `image_data=${encodeURIComponent(image_data)}`
-                    });
-
-                    if (response.ok) {
-                        alert('Image captured and uploaded successfully.');
-                    } else {
-                        alert('Failed to capture and upload image.');
-                    }
-
-                    video.pause();
-                    stream.getTracks().forEach(track => track.stop());
-                    document.body.removeChild(video);
-                }, 3000);  // Capture an image after 3 seconds (adjust as needed)
-            } catch (error) {
-                console.error('Error accessing the camera:', error);
-            }
+      var rectangle = document.getElementById("rectangle");
+      if (rectangle) {
+        rectangle.addEventListener("click", function (e) {
+          window.location.href = "{%url 'login'%}";
         });
-    </script>
-</body>
+      }
+      
+      var frameContainer3 = document.getElementById("frameContainer3");
+      if (frameContainer3) {
+        frameContainer3.addEventListener("click", function (e) {
+          window.location.href = "{%url 'login' %}";
+        });
+      }
+      </script>
+  </body>
 </html>

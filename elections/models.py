@@ -2,10 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
 
-#lets add fields to the existing user model
+
 class User(AbstractUser):
-    Email = models.EmailField(unique=True)
-    PhoneNumber = models.CharField(max_length=15)
     
     def __str__(self):
         return self.username

@@ -1,0 +1,200 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="{%static '/css/global.css'%}" />
+    <link rel="stylesheet" href="{%static '/css/signup.css'%}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins ExtraBold:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="desktop-3">
+      <img class="bg-round-icon3" alt="" src="{%static '/images/bground@2x.png'%}" />
+
+      <img class="bg-round-icon4" alt="" src="{%static '/images/bground1@2x.png'%}" />
+
+      <img class="bg-tree-icon2" alt="" src="{%static '/images/bgtree@2x.png'%}" />
+
+      <img class="bg-dot-icon2" alt="" src="{%static '/images/bgdot@2x.png'%}" />
+
+      <div class="online-voting-systems3">Online Voting System</div>
+      <div class="home2">HOME</div>
+      <div class="about2">ABOUT</div>
+      <div class="contact2">CONTACT</div>
+      <div class="desktop-3-child" id="rectangle"></div>
+      <div class="login3">LOGIN</div>
+      <div class="signup">
+        <div class="right-side2">
+          <div class="right-side3">
+            <div class="rectangle-div"></div>
+            <div class="ellipse-div"></div>
+            <div class="right-side-child1"></div>
+            <div class="right-side-inner1">
+              <div class="group-container">
+                <div class="join-us-parent">
+                  <b class="join-us">Join us!</b>
+                  <div class="just-go-through">
+                    Just go through the boring process of creating an account.
+                  </div>
+                </div>
+                <div class="carouseldesktoplarge1">
+                  <div class="carouseldesktoplarge-child1"></div>
+                  <div class="carouseldesktoplarge-child2"></div>
+                  <div class="carouseldesktoplarge-child3"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <img
+            class="undraw-thought-process-re-om58-icon"
+            alt=""
+            src="{%static '/images/undraw-thought-process-re-om58-1.svg'%}"
+          />
+        </div>
+        
+        <div id="custom-messages"></div>
+  
+
+        <form id="login-form" method="post" action ="{%url 'register'%}">
+          {% csrf_token %}
+          
+        <div class="left-side2">
+          <div class="right-side3">
+            <div class="left-side-item"></div>
+          </div>
+          <div class="frame-parent5">
+            <div></div>
+            <div class="frame-parent6">
+              <div class="group-container">
+                <div class="frame-parent8">
+                  <div class="person-group">
+                    <img
+                      class="person-icon1"
+                      alt=""
+                      src="{%static '/images/person2.svg'%}"
+                    />
+                    
+                    <div class="username">
+                      <input type="number" placeholder="Username" id="username" name="username" required style = "font-size: 25px; width: 350px;background-color: transparent;outline: none;border: none; "/>
+                    </div>
+                  </div>
+                  <div class="person-group">
+                    <img
+                      class="person-icon1"
+                      alt=""
+                      src="{%static '/images/envelope1.svg'%}"
+                    />
+
+                    <div class="username">
+                      <input type="email" placeholder="Email id" id="email" name="email" required style = "font-size: 25px; width: 350px; background-color: transparent;outline: none;border: none;"/>
+                    </div>
+                  </div>
+                  <div class="group-wrapper">
+                    <div class="shield-slash-group">
+                      <img
+                        class="shield-slash-icon2"
+                        alt=""
+                        src="{%static '/images/shieldslash2.svg'%}"
+                      />
+
+                      <div class="confirm-password">
+                        <input type="password" placeholder="Password" id="password" name="password" required style = "font-size: 25px; width: 350px; background-color: transparent;outline: none;border: none;"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="group-wrapper">
+                    <div class="shield-slash-container">
+                      <img
+                        class="shield-slash-icon2"
+                        alt=""
+                        src="{%static '/images/shieldslash2.svg'%}"
+                      />
+
+                      <div class="confirm-password">
+                        <input type="password" placeholder="Confirm Password" id="confirmpassword" name="confirmpassword" required style = "font-size: 25px; width: 350px; background-color: transparent;outline: none;border: none;"/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="frame-wrapper3">
+                  <div class="frame-wrapper4">
+                    
+
+                              <div class="accept-terms-and-container">
+                                  <br>
+                                
+                                  <input type="checkbox" id="acceptTerms" name="acceptTerms" required/>
+                                  <label for="acceptTerms">
+                                      Accept<a href="#" id="showTermsLink">&nbsp;Terms&nbsp;and&nbsp;Conditions</a>
+                                  </label>
+                              </div>
+                    
+                  </div>
+                </div>
+              </div>
+              <div>
+                <input type = "submit" class="submit" id="submitBtn"></input>
+                <input type="hidden" name="acceptTerms" value="on" />
+
+              </div>
+            
+              
+            </form>
+              <div class="you-have-account-container" id="youHaveAccount">
+                <span>You have account?</span>
+                <span class="span1"> </span>
+                <a href = "{%url 'login'%}"><b class="login-now">Login now</b></a>
+              </div>
+            </div>
+          </div>
+          <div class="left-side-inner">
+            <div class="frame-wrapper6">
+              <div class="create-your-account-parent">
+                <b class="create-your-account">Create your account</b>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  
+
+    <script>
+      var showTermsLink = document.getElementById("showTermsLink");
+
+      if (showTermsLink) {
+          showTermsLink.addEventListener("click", function (e) {
+              alert(`Terms and Conditions:\n\n1. You authorize the use of your device's camera to capture live images for facial authentication during registration.\n2. The captured images will be used solely for the purpose of user verification.\n3. We do not store or share your images with third parties.\n4. You have the option to revoke camera access at any time.\nPlease read and understand these terms before proceeding.`);
+          });
+      }
+      var customMessages = {{ custom_messages|safe }};
+
+      if (customMessages.length > 0) {
+          customMessages.forEach(function(message) {
+              alert(message);
+          });
+      }
+
+      
+    
+      </script>
+  </body>
+</html>
