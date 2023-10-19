@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="{%static 'css/global.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/voting.css'%}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins ExtraBold:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="desktop-5">
+      <img class="bg-round-icon9" alt="" src="{%static 'images/bground@2x.png'%}" />
+
+      <img class="bg-round-icon10" alt="" src="{%static 'images/bground2@2x.png'%}" />
+
+      <img class="bg-tree-icon5" alt="" src="{%static 'images/bgtree@2x.png'%}" />
+
+      <img class="bg-dot-icon5" alt="" src="{%static 'images/bgdot@2x.png'%}" />
+
+      <div class="online-voting-systems6"><strong>Online Voting System</strong></div>
+      <div class="home5">HOME</div>
+      <div class="about5">ABOUT</div>
+      <div class="contact5">CONTACT</div>
+      <div class="desktop-5-child" id="rectangle"></div>
+      <div class="login6">LOGIN</div>
+      <div class="face2">
+        <div class="right-side8">
+          <div class="right-side9">
+            <div class="right-side-child8"></div>
+            <div class="right-side-child9"></div>
+            <div class="right-side-child10"></div>
+            <div class="right-side-inner4">
+              <div class="group-parent3">
+                
+                <div class="carouseldesktoplarge4">
+                  <div class="carouseldesktoplarge-child10"></div>
+                  <div class="carouseldesktoplarge-child11"></div>
+                  <div class="carouseldesktoplarge-child12"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="left-side8">
+          <div class="right-side9">
+            <div class="left-side-child3"></div>
+          </div>          
+
+          <b class="choose-your-candidate-container">
+            <p class="choose-your"><strong>{{ election }}</strong></p>
+          </b>
+          <form method="post" action="{% url 'voting' %}">
+            {% csrf_token %}
+            <div class="frame-parent9">
+              {% for candidate in candidates %}
+              <div class="frame-wrapper7">
+                <input type="radio" name="selected_candidate" id="candidate{{ candidate.Name }}" value="{{ candidate.Name }}" required>
+                <label for="candidate{{ candidate.Name }}">
+                  <div class="candidate-1-wrapper">
+                    <div class="vote1">
+                      <strong><font size="5">{{ candidate.Name }}</font></strong>
+                    </div>
+                  </div>
+                </label>
+              </div>
+              <br>
+              {% endfor %}
+              <div>
+                <br>
+                <input type="submit" class="submit" id="submitBtn" value="Vote"></input>
+              </div>
+              <div class="frame-child1"></div>
+            </div>
+          </form>
+          
+          <script>
+      
+            var customMessages = {{ custom_messages|safe }};
+      
+            if (customMessages.length > 0) {
+                customMessages.forEach(function(message) {
+                    alert(message);
+                });
+            }
+            
+            </script>
+
+        </div>
+        <img class="icon2" alt="" src="{%static 'images/11@2x.png'%}" />
+      </div>
+      <img class="icon3" alt="" src="{%static 'images/11-1-1@2x.png'%}" />
+    </div>
+
+  
+  </body>
+</html>

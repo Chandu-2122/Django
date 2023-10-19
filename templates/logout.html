@@ -1,0 +1,86 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="{%static 'css/global.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/logout.css'%}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins ExtraBold:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="desktop-6">
+      <img class="bg-round-icon11" alt="" src="{%static 'images/bground@2x.png'%}" />
+
+      <img class="bg-round-icon12" alt="" src="{%static 'images/bground2@2x.png'%}" />
+
+      <img class="bg-tree-icon6" alt="" src="{%static 'images/bgtree@2x.png'%}" />
+
+      <img class="bg-dot-icon6" alt="" src="{%static 'images/bgdot@2x.png'%}" />
+
+      <div class="online-voting-systems7"><strong>Online Voting System</strong></div>
+      <div class="home6">HOME</div>
+      <div class="about6">ABOUT</div>
+      <div class="contact6">CONTACT</div>
+      <div class="desktop-6-child" id="rectangle"></div>
+      <div class="login7">LOGIN</div>
+      <div class="face3">
+        <div class="right-side10">
+          <div class="right-side11">
+            <div class="right-side-child11"></div>
+            <div class="right-side-child12"></div>
+            <div class="right-side-child13"></div>
+            <div class="right-side-inner5">
+              <div class="group-parent4">
+                <div class="join-us-parent1">
+                  <b class="join-us4">Join us!</b>
+                  <div class="just-go-through4">
+                    Just go through the boring process of creating an account.
+                  </div>
+                </div>
+                <div class="carouseldesktoplarge5">
+                  <div class="carouseldesktoplarge-child13"></div>
+                  <div class="carouseldesktoplarge-child14"></div>
+                  <div class="carouseldesktoplarge-child15"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="left-side10">
+          <div class="right-side11">
+            <div class="left-side-child4"></div>
+          </div>
+          <b class="thanks-for-voting">Thanks For Voting.</b>
+        </div>
+        <img class="icon4" alt="" src="{%static 'images/11@2x.png'%}" />
+      </div>
+      <img class="icon5" alt="" src="{%static 'images/11-2-1@2x.png'%}" />
+    </div>
+
+    <script>
+      var rectangle = document.getElementById("rectangle");
+      if (rectangle) {
+        rectangle.addEventListener("click", function (e) {
+          window.location.href = "./login.html";
+        });
+      }
+      </script>
+  </body>
+</html>

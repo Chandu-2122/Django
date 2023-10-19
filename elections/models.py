@@ -24,7 +24,7 @@ class Election(models.Model):
     Is_active = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.title
+        return self.Title
     
 # let's create a model for candidates
 class Candidate(models.Model):
@@ -47,8 +47,8 @@ class VotedOrNot(models.Model):
 class Vote(models.Model):
     Candidate = models.ForeignKey(Candidate, on_delete=models.CASCADE)
     Election = models.ForeignKey(Election, on_delete=models.CASCADE)
-    Vote_count = models.IntegerField(default=0)
-
+    Vote_count = models.PositiveIntegerField(default=0)
+    
     def __str__(self):
-        return f'Votes for {self.candidate.name} in {self.election.title}'
+        return f"Vote for {self.Candidate}"
 
