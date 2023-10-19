@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import User
+from django.contrib.auth.models import auth
 
 def register_view(request):
     messages = []
@@ -8,7 +9,6 @@ def register_view(request):
         email = request.POST['email']
         password = request.POST['password']
         confirmpassword = request.POST['confirmpassword']
-        
         
         if password == confirmpassword:
             if User.objects.filter(username=username).exists():
@@ -27,11 +27,21 @@ def register_view(request):
     return render(request, 'signup.html', {'custom_messages': messages})
     
 
-
-
 def login_view(request):
-    
-    return render(request, 'login.html')
+    messages = []
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        
+        user = auth.authenticate(username=username, password=password)
+        
+        if user is not None:
+            auth.login(request, user)
+            return redirect('voting.html')
+        else:
+            messages.append('Invalid credentials')
+        
+    return render(request, 'login.html', {'custom_messages': messages})
 
 
 

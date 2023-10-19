@@ -34,7 +34,7 @@
 
       <img class="bg-dot-icon2" alt="" src="{%static '/images/bgdot@2x.png'%}" />
 
-      <div class="online-voting-systems3">Online Voting System</div>
+      <div class="online-voting-systems3"><strong>Online Voting System</strong></div>
       <div class="home2">HOME</div>
       <div class="about2">ABOUT</div>
       <div class="contact2">CONTACT</div>
@@ -72,7 +72,7 @@
         <div id="custom-messages"></div>
   
 
-        <form id="login-form" method="post" action ="{%url 'register'%}">
+        <form id="signup-form" method="post" action ="{%url 'register'%}">
           {% csrf_token %}
           
         <div class="left-side2">
@@ -149,10 +149,9 @@
                   </div>
                 </div>
               </div>
-              <div>
-                <input type = "submit" class="submit" id="submitBtn"></input>
-                <input type="hidden" name="acceptTerms" value="on" />
 
+              <div>
+                <input type = "submit" class="submit" id="submitBtn" value="Register"></input>
               </div>
             
               
