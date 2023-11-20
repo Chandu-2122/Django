@@ -1,5 +1,5 @@
-# Secure_Voting_System
-#### Final year django project: Secure Online voting with antispoofing facial authentication system.
+# Online_Voting_System
+####  Online voting with antispoofing facial authentication system.
 
 **User Guide**:
 
@@ -31,4 +31,6 @@ use the system effectively.
     - You will receive a confirmaƟon message confirming your vote has been recorded.
       
 **4. Results:**
-    When the eleciton time completes, the results will be automatically displayed on the results page.
+    When the election time completes, the results will be automatically displayed on the results page.
+
+    Facial Authentication system is not built yet...
